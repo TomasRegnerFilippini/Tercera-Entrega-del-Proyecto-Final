@@ -1,0 +1,526 @@
+//mixin
+@mixin paddinMargin ($padding, $margin)
+{
+    padding:$padding;
+    margin:$margin;
+}
+//mapas imagenes header
+$tabletImg: (
+    width: 40px,
+    padding: 10px,
+    border-radius: 15px,
+);
+
+$pcImg: (
+    width: 50px,
+    padding: 10px,
+    border-radius: 14px,
+    
+);
+
+//extend en etiqueta movile
+%movileStyle{
+    color: black;
+     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
+}
+
+
+
+
+.mainHeader{
+    background-color: black;
+    position: sticky;
+    display: flex;
+    justify-content: space-around;
+    border-color: azure;
+    border-style: groove;
+    @include paddinMargin(0px,0px);
+
+    height: 70px; 
+
+    .tituloPrincipal{
+        color: azure;
+        text-align: center;
+        font-size: 40px;
+        margin-top: 10px;
+        padding: 0px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    .topMenu {
+
+               ul{
+
+                  li{
+                     display: inline-block;
+                     margin-top: 10px;
+                     margin-left: 10px;
+                        .headerImg{
+                            background-color: aliceblue;
+                            width: 35px;
+                            @include paddinMargin(9px,1px);
+                            border-radius: 20px;
+
+                        }
+                    }
+                    li:hover{
+                        transform: scale(1.2);
+                        
+                    }
+
+               }
+    }
+
+}
+
+
+.menu{
+    background-color: black;
+    z-index: 2;
+    @include paddinMargin(1px, 1px);
+    text-align: center;
+
+      ul{
+          li{
+                background-color:white;
+                border-radius: 35px;
+                font-size: 10px;
+                display: inline-block;
+                
+                @include paddinMargin(10px, 10px);
+                
+
+                 .mainImg{
+                    width: 250px;
+                    display: flex;
+                    }
+                    .mainImg:hover
+                      {
+                          transform: scale(1.15);
+                          
+                      }
+
+
+                    .aMain{
+                        text-align: center;
+                        text-decoration: none;
+                        color: black;
+                        
+                     }
+                     .movile{
+                        @extend %movileStyle;
+                        font-size: 30px;
+                    }
+            }
+      }
+}
+
+footer{
+  
+  
+    .derechos{
+        font-size: 26px;
+        
+    }
+    .footUpImg
+    { margin-top: 10px;
+      margin-left: 10px;
+      width: 26px;
+    }
+}
+
+@media only screen and (min-width:600px){
+
+    .mainHeader{
+        height: 75px;
+        .tituloPrincipal{
+            font-size: 45px;
+        }
+
+            .topMenu {
+                ul{
+                   li{
+                    .headerImg{
+                        width: map-get($map: $tabletImg , $key: width );
+                        padding: map-get($map: $tabletImg , $key: padding );
+                        border-radius: map-get($map: $tabletImg, $key:border-radius );
+                    }
+                   }    
+                }    
+            }   
+    }
+    .menu{
+        
+        @include paddinMargin(20px, 1px);
+    
+          ul{
+              li{
+                    
+                    border-radius: 38px; 
+                    @include paddinMargin(12px, 15px);
+    
+                     .mainImg{
+                        width: 350px;
+                        display: flex;
+                        }
+                        .mainImg:hover
+                          {
+                              transform: scale(1.15);
+                              
+                          }
+                          .movile{
+                            color: black;
+                            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                            font-size: 35px;
+                               }
+                }
+          }
+    }
+    
+    footer{
+      
+      
+        .derechos{
+            font-size: 30px;
+            
+        }
+        .footUpImg
+        { margin-top: 18px;
+          margin-left: 45px;
+          width: 35px;
+        }
+    }
+}
+
+@media only screen and (min-width:1200px){
+
+    .mainHeader{
+        height: 80px;
+        .tituloPrincipal{
+            font-size: 50px;
+        }
+
+            .topMenu {
+                ul{
+                   li{
+                    .headerImg{
+                        width: map-get($map: $pcImg , $key: width );
+                        padding: map-get($map: $pcImg , $key: padding );
+                        border-radius: map-get($map: $pcImg, $key:border-radius );
+                    }
+                   }    
+                }    
+            }   
+    }
+    .menu{
+        
+        @include paddinMargin(20px, 1px);
+    
+          ul{
+              li{
+                    
+                    border-radius: 38px; 
+                    @include paddinMargin(12px, 15px);
+    
+                     .mainImg{
+                        width: 470px;
+                        display: flex;
+                        }
+                        .mainImg:hover
+                          {
+                              transform: scale(1.1);
+                              border-radius: 50px;
+                             
+                              
+                          }
+                         .movile{
+                           display: none;
+                        }
+                }
+          }
+    }
+    
+    footer{
+      
+      
+        .derechos{
+            font-size: 40px;
+           
+            
+        }
+        .footUpImg
+        { margin-top: 15px;
+          margin-left: 200px;
+          width: 60px;
+        }
+    }
+}
+
+
+// Productos
+
+.bodyProducts{
+    background-color: black;
+    .pName{
+        text-align: center;
+        font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-size: 50px;
+        margin: 1rem;
+        color: aliceblue;
+    }
+    .tarjeta{
+        margin: 15px;
+    }
+}
+
+
+//sobre nosotros
+
+.nosotrosMain
+{   display: grid;
+    grid-template-areas:  "pNosotros"
+                          "iNosotros" 
+                           ;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0px;
+    padding: 50px;
+   
+    background-color: black;
+    justify-content: center;
+    align-items: center;
+
+    .pNosotros{
+        grid-area: pNosotros;
+        text-align: center;
+        font-size: 30px;
+        color: white;
+    }
+     
+    .ourPic
+   {  grid-area: iNosotros;
+     width: 400px;   
+     text-align: center; 
+     }
+
+     .pNosotrosBotom
+ {  background-color: rgb(60, 120, 160); 
+     font-size: 500px;
+ }
+    
+}
+
+@media only screen and (min-width:700px){
+    .main{
+    justify-content: center;
+    
+    }
+    .pNosotros{
+        grid-area: pNosotros;
+        text-align: center;
+        font-size: 40px;
+        color: white;
+    }
+    .ourPic
+ {   grid-area: iNosotros;
+     width: 600px;   
+     text-align: center; 
+ }
+  }
+
+  @media only screen and (min-width:1000px){
+    .nosotrosMain
+    {   display: grid;
+        grid-template-areas:  "pNosotros" "iNosotros" ;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        height: 75vh;
+    
+        margin: 0px;
+        padding: 50px;
+       
+        background-color: black;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    .pNosotros{
+        grid-area: pNosotros;
+        text-align: center;
+        font-size: 40px;
+        color: white;
+    }
+    .ourPic
+ {   grid-area: iNosotros;
+     width: 500px;   
+     text-align: center; 
+ }
+}
+
+//Registro
+.regmenu{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    background-color:whitesmoke;
+    height: 600px;
+}
+.form{
+    grid-area: form;
+    text-align: center;
+    background-color: whitesmoke;
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    margin-left:30px;
+    width: 10px;
+    .inputR{
+        font-size: 15px;
+    }
+}
+.regImg{
+    visibility: hidden;
+    
+}
+@media only screen and (min-width:700px){
+    .regmenu{
+        display: grid;
+        grid-template-areas: "form rImg" ;
+        text-align: center;
+        justify-content: center;
+        background-color:whitesmoke;
+        display: flex;
+        justify-content:space-between;
+        height: 600px;
+
+        
+    }
+    .form{
+       
+        text-align: center;
+        background-color: whitesmoke;
+        font-size: 20px;
+        margin-top: 30px;
+        margin-bottom: 50px;
+        margin-left:30px;
+        width: 10px;
+
+        .inputR{
+            font-size: 12px;
+        }
+
+    }
+    .regImg{
+        width: 500px;
+        visibility: visible;
+        grid-area: rImg;
+   }
+ }
+ @media only screen and (min-width:1024px){
+
+    .regmenu{
+        background-color:whitesmoke;
+        display: flex;
+        justify-content:space-around;
+        height: 860px;
+
+        
+    }
+    .form{
+        background-color: whitesmoke;
+        font-size: 25px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        margin-left:50px;
+        width: 10px;
+
+        .inputR{
+            font-size: 15px;
+        }
+
+    }
+    
+    .regImg{
+       width: 850px;
+       margin-bottom: 200px;
+      
+    }
+}
+
+@media only screen and (min-width:1300px){
+    .regmenu{
+        background-color:whitesmoke;
+        display: flex;
+        justify-content:space-around;
+        height: 860px;
+
+        
+    }
+    .form{
+        background-color: whitesmoke;
+        font-size: 25px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        margin-left:50px;
+        width: 10px;
+
+        .inputR{
+            font-size: 15px;
+        }
+
+    }
+    
+    .regImg{
+       width: 1250px;
+       margin-bottom: 200px;
+      
+    }
+
+}
+//contacto
+
+.contacto{
+    display: grid;
+    grid-template-areas:  "c1" 
+                          "c2"
+                          "c3" ;
+    text-align: center;
+    font-size: 25px;
+    height: 75vh;
+   
+    
+}
+@media only screen and (min-width:700px){
+
+    .contacto{
+        font-size: 40px;
+        height: 73vh;
+    }
+
+}
+@media only screen and (min-width:1024px){
+
+    .contacto{
+        font-size: 70px;
+        height: 74vh;
+    }
+
+}
+
+@media only screen and (min-width:1200px){
+
+    .contacto{
+        font-size: 70px;
+        height: 70vh;
+    }
+
+}
+
+
+    
+
+
+
